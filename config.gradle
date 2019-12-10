@@ -25,13 +25,15 @@ ext {
             "retrofit"            : "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
             "converter-gson"      : "com.squareup.retrofit2:converter-gson:${dependVersion.retrofit}",
             "adapter-rxjava2"     : "com.squareup.retrofit2:adapter-rxjava2:${dependVersion.retrofit}",
-            "rxandroid"           : "io.reactivex.rxjava2:rxandroid:2.1.1"
+            "rxandroid"           : "io.reactivex.rxjava2:rxandroid:2.1.1",
+            //design
+            "material"            : "com.google.android.material:material:1.0.0"
     ]
     dependCompiler = [
             "arouter-compiler": "com.alibaba:arouter-compiler:1.2.2",
             "glide-compiler"  : "com.github.bumptech.glide:compiler:${dependVersion.glide}",
 
     ]
-    libCompilers =dependCompiler.values()
+    libCompilers = dependCompiler.values()
     libs = depend.values()
 }
