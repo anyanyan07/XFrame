@@ -1,0 +1,37 @@
+ext {
+    android = [
+            compileSdkVersion: 29,
+            minSdkVersion    : 19,
+            targetSdkVersion : 29,
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+    dependVersion = [
+            retrofit: "2.6.2",
+            glide   : "4.10.0"
+    ]
+    depend = [
+            //日志框架
+            "logger"              : "com.orhanobut:logger:2.2.0",
+            //路由框架
+            "arouter"             : "com.alibaba:arouter-api:1.5.0",
+            //图片框架
+            "glide"               : "com.github.bumptech.glide:glide:${dependVersion.glide}",
+            //banner框架
+            "banner"              : "com.youth.banner:banner:1.4.10",
+            //刷新加载框架
+            "smart-refresh-layout": "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0",
+            //网络和数据解析框架（配套使用）
+            "retrofit"            : "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
+            "converter-gson"      : "com.squareup.retrofit2:converter-gson:${dependVersion.retrofit}",
+            "adapter-rxjava2"     : "com.squareup.retrofit2:adapter-rxjava2:${dependVersion.retrofit}",
+            "rxandroid"           : "io.reactivex.rxjava2:rxandroid:2.1.1"
+    ]
+    dependCompiler = [
+            "arouter-compiler": "com.alibaba:arouter-compiler:1.2.2",
+            "glide-compiler"  : "com.github.bumptech.glide:compiler:${dependVersion.glide}",
+
+    ]
+    libCompilers =dependCompiler.values()
+    libs = depend.values()
+}
