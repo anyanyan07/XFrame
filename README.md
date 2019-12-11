@@ -16,7 +16,7 @@ implementation 'com.alibaba:arouter-api:1.5.0'
 annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 
 Banner框架：
-implementation 'com.youth.banner:banner:1.4.10'
+implementation 'com.youth.homeBanner:homeBanner:1.4.10'
 
 日志框架：Logger
 implementation 'com.orhanobut:logger:2.2.0'

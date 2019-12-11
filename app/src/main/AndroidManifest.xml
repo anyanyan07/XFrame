@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ayy.xframe">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".FrameApplication"
         android:allowBackup="true"

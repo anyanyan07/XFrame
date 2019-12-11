@@ -13,7 +13,7 @@ import com.ayy.xframe.R;
 import com.ayy.xframe.base.BaseActivity;
 import com.ayy.xframe.config.Constant;
 import com.ayy.xframe.databinding.ActivityMainBinding;
-import com.ayy.xframe.ui.HomeFragment;
+import com.ayy.xframe.ui.home.HomeFragment;
 import com.ayy.xframe.ui.MeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

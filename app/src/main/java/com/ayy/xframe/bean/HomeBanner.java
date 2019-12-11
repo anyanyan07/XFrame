@@ -1,6 +1,6 @@
 package com.ayy.xframe.bean;
 
-public class Banner {
+public class HomeBanner {
 
     /**
      * desc : 享学~
