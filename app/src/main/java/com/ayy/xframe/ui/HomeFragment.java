@@ -17,8 +17,7 @@ import com.ayy.xframe.R;
 public class HomeFragment extends Fragment {
 
 
-    private HomeFragment() {
-        // Required empty public constructor
+    public HomeFragment() {
     }
 
     public static HomeFragment getInstance() {

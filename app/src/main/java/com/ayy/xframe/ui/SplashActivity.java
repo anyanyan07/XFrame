@@ -6,7 +6,6 @@ import com.ayy.xframe.base.BaseActivity;
 import com.ayy.xframe.config.Constant;
 import com.ayy.xframe.databinding.ActivitySplashBinding;
 import com.ayy.xframe.util.RxThreadUtil;
-import com.orhanobut.logger.Logger;
 
 import java.util.concurrent.TimeUnit;
 
@@ -43,6 +42,7 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding> {
 
     private void goMain() {
         ARouter.getInstance().build(Constant.MAIN).navigation();
+        finish();
     }
 
     @Override

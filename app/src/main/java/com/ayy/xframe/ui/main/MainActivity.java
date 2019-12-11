@@ -5,6 +5,7 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -24,10 +25,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements B
 
     private List<Fragment> fragmentList;
     private int currentIndex = -1;
+    public static final String CURRENT_INDEX = "CURRENT_INDEX";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initFragments(savedInstanceState);
     }
 
     @Override
@@ -37,15 +40,31 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements B
 
     @Override
     protected void initData() {
-        initFragments();
         binding.navigation.setOnNavigationItemSelectedListener(this);
-        setCurrentFragment(0);
+
     }
 
-    private void initFragments() {
+    private void initFragments(Bundle savedInstanceState) {
         fragmentList = new ArrayList<>();
-        fragmentList.add(HomeFragment.getInstance());
-        fragmentList.add(MeFragment.getInstance());
+        int index = 0;
+        if (savedInstanceState != null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            Fragment homeFragment = fragmentManager.getFragment(savedInstanceState, "0");
+            if (homeFragment == null) {
+                homeFragment = HomeFragment.getInstance();
+            }
+            Fragment meFragment = fragmentManager.getFragment(savedInstanceState, "1");
+            if (meFragment == null) {
+                meFragment = MeFragment.getInstance();
+            }
+            fragmentList.add(homeFragment);
+            fragmentList.add(meFragment);
+            index = savedInstanceState.getInt(CURRENT_INDEX);
+        } else {
+            fragmentList.add(HomeFragment.getInstance());
+            fragmentList.add(MeFragment.getInstance());
+        }
+        setCurrentFragment(index);
     }
 
     @Override
@@ -81,5 +100,21 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements B
         }
         transaction.commit();
         currentIndex = index;
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        //保存fragment
+        outState.putInt(CURRENT_INDEX, currentIndex);
+        if (fragmentList != null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            for (int i = 0; i < fragmentList.size(); i++) {
+                Fragment fragment = fragmentList.get(i);
+                if (fragment != null && fragment.isAdded()) {
+                    fragmentManager.putFragment(outState, String.valueOf(i), fragment);
+                }
+            }
+        }
+        super.onSaveInstanceState(outState);
     }
 }

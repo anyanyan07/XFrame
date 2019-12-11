@@ -17,7 +17,7 @@ import com.ayy.xframe.R;
 public class MeFragment extends Fragment {
 
 
-    private MeFragment() {
+    public MeFragment() {
         // Required empty public constructor
     }
 
