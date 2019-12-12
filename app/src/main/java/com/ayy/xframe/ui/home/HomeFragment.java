@@ -13,6 +13,7 @@ import com.ayy.xframe.base.BaseResWithPage;
 import com.ayy.xframe.bean.Article;
 import com.ayy.xframe.bean.HomeBanner;
 import com.ayy.xframe.databinding.FragmentHomeBinding;
+import com.ayy.xframe.util.ImageLoadUtil;
 import com.bumptech.glide.Glide;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
@@ -62,7 +63,7 @@ public class HomeFragment extends BasePresenterFragment<FragmentHomeBinding, Hom
                 .setImageLoader(new ImageLoader() {
                     @Override
                     public void displayImage(Context context, Object path, ImageView imageView) {
-                        Glide.with(context).load(((HomeBanner) path).getImagePath()).into(imageView);
+                        ImageLoadUtil.load(context, ((HomeBanner) path).getImagePath(), imageView);
                     }
                 }).setImages(homeBannerList).start();
     }
