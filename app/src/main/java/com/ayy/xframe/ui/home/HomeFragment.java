@@ -14,7 +14,6 @@ import com.ayy.xframe.bean.Article;
 import com.ayy.xframe.bean.HomeBanner;
 import com.ayy.xframe.databinding.FragmentHomeBinding;
 import com.ayy.xframe.util.ImageLoadUtil;
-import com.bumptech.glide.Glide;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.youth.banner.loader.ImageLoader;
