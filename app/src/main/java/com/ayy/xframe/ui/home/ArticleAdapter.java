@@ -10,8 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.ayy.xframe.R;
 import com.ayy.xframe.bean.Article;
+import com.ayy.xframe.config.Constant;
 import com.ayy.xframe.databinding.ArticleItemBinding;
 
 import java.util.List;
@@ -60,6 +62,15 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, "heart", Toast.LENGTH_LONG).show();
+                }
+            });
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ARouter.getInstance().build(Constant.WEB)
+                            .withString("url", article.getLink())
+                            .navigation();
                 }
             });
         }
